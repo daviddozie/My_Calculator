@@ -10,12 +10,12 @@ body {
 }
 
 #calculator {
-    min-height: 100vh;
+    height: auto;
     width: 100%;
 }
 
 .calculator-wrapper {
-    min-height: 75vh;
+    height: auto;
     width: 60%;
     border-radius: 20px;
     border: none;
@@ -94,7 +94,7 @@ body {
 @media only screen and (max-width: 600px) {
     .calculator-wrapper {
         width: 100%;
-        min-height: 100vh;
+        height: auto;
         border-radius: 0px;
     } 
 
@@ -103,4 +103,7 @@ body {
         border-top-left-radius: 0px;
     }
     
+    #calculator {
+        height: auto;
+    }
 }
