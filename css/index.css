@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#calculator {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.calculator-wrapper {
+    min-height: 75vh;
+    width: 60%;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0,0.2);
+    background-color: black;
+}
+
+.calculator-wrapper input {
+    width: 100%;
+    height: 200px;
+    padding: 50px 5px;
+    border: none;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background-color: #fff;
+}
+
+.calculator-wrapper input:focus {
+    outline: none;
+}
+
+.anim {
+    position: absolute;
+    background-color: bisque;
+    border-radius: 0 100px 0 0;
+    left: 0;
+    bottom: 0;
+    animation: none;
+}
+
+.playAnimation {
+    animation: scale 1s ease forwards;
+}
+
+@keyframes scale {
+    from {
+        width: 100px;
+        height: 100px;
+        opacity: 1;
+    }
+    to {
+        width: 850px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
+.buttons {
+    width: 100%;
+    height: auto;
+}
+
+.btn-wrapper button {
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn-wrapper button {
+    background-color: bisque;
+}
+
+.fa-circle-xmark {
+    color: red;
+}
+
+.fa-equals {
+    color: green;
+}
+
+.btn-wrapper button .btn-chg {
+    color: gray !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .calculator-wrapper {
+        width: 100%;
+        min-height: 100vh;
+        border-radius: 0px;
+    } 
+
+    .calculator-wrapper input {
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+    
+}
