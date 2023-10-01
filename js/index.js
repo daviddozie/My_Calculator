@@ -47,3 +47,22 @@ function clearSingleDisplay() {
     display.value = currentValue.slice(0, -1);
   }
 }
+
+const percentButton = document.querySelector("button[onclick='appendToDisplay(\\'%\\')']");
+
+// Attach an event listener to the percentage button
+percentButton.addEventListener("click", calculatePercentage);
+
+function calculatePercentage() {
+  try {
+    const currentValue = parseFloat(display.value);
+    if (!isNaN(currentValue)) {
+      const percentageValue = currentValue / 100;
+      display.value = percentageValue;
+    }
+  } catch (error) {
+    display.value = "Math error";
+    display.style.color = "red";
+    display.style.fontSize = "12px";
+  }
+}

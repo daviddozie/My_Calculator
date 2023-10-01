@@ -10,12 +10,12 @@ body {
 }
 
 #calculator {
-    height: auto;
+    min-height: 100vh;
     width: 100%;
 }
 
 .calculator-wrapper {
-    height: auto;
+    min-height: 90vh;
     width: 60%;
     border-radius: 20px;
     border: none;
@@ -25,8 +25,8 @@ body {
 
 .calculator-wrapper input {
     width: 100%;
-    height: 200px;
-    padding: 50px 5px;
+    min-height: 30vh;
+    padding: 0px 5px;
     border: none;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
@@ -65,7 +65,7 @@ body {
 
 .buttons {
     width: 100%;
-    height: auto;
+    min-height: 60vh;
 }
 
 .btn-wrapper button {
@@ -87,23 +87,16 @@ body {
     color: green;
 }
 
-.btn-wrapper button .btn-chg {
-    color: gray !important;
-}
-
 @media only screen and (max-width: 600px) {
     .calculator-wrapper {
         width: 100%;
-        height: auto;
+        min-height: 100vh;
         border-radius: 0px;
     } 
 
     .calculator-wrapper input {
+        min-height: 40vh;
         border-top-right-radius: 0px;
         border-top-left-radius: 0px;
-    }
-    
-    #calculator {
-        height: auto;
     }
 }
