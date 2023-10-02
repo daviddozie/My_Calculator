@@ -39,7 +39,7 @@ body {
 
 .anim {
     position: absolute;
-    background-color: bisque;
+    background-color: green;
     border-radius: 0 100px 0 0;
     left: 0;
     bottom: 0;
@@ -77,6 +77,12 @@ body {
 
 .btn-wrapper button {
     background-color: bisque;
+    transition: ease-in-out 0.5s;
+    opacity: 80%;
+}
+
+.btn-wrapper button:not(:focus,:hover) {
+    opacity: 40%;
 }
 
 .fa-circle-xmark {
@@ -85,6 +91,47 @@ body {
 
 .fa-equals {
     color: green;
+}
+
+.bg-import:not(:focus,:hover) {
+    opacity: 40%;
+}
+
+.bg-import {
+    background-color: goldenrod !important;
+    transition: ease-in-out 0.5s;
+}
+
+@media only screen and (max-width: 830px) {
+    .calculator-wrapper {
+        width: 100%;
+        min-height: 100vh;
+        border-radius: 0px;
+    } 
+
+    .calculator-wrapper input {
+        min-height: 50vh;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+
+    .buttons {
+        width: 100%;
+        min-height: 50vh;
+    }
+
+    @keyframes scale {
+        from {
+            width: 100px;
+            height: 100px;
+            opacity: 1;
+        }
+        to {
+            width: 850px;
+            height: 600px;
+            opacity: 0;
+        }
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -99,4 +146,18 @@ body {
         border-top-right-radius: 0px;
         border-top-left-radius: 0px;
     }
+
+    @keyframes scale {
+        from {
+            width: 100px;
+            height: 100px;
+            opacity: 1;
+        }
+        to {
+            width: 850px;
+            height: 450px;
+            opacity: 0;
+        }
+    }
+    
 }
