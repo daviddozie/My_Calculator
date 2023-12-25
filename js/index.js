@@ -1,13 +1,15 @@
 const display = document.getElementById("display");
 const animeClear = document.getElementById("anime-clear");
 let storedValueForPercentage = null;
-
+let lastOperator = null;
+let lastResult = null;
 
 function appendToDisplay(char) {
   if (char === '/100') {
     display.value += '%';
   } else {
     display.value += char;
+    lastOperator = null;
   }
   display.style.fontSize = "40px";
   display.style.color = "white";
@@ -15,6 +17,7 @@ function appendToDisplay(char) {
 
 function clearDisplay() {
   display.value = "";
+  lastResult = null;
 
   animeClear.classList.remove("playAnimation");
   void animeClear.offsetWidth;
@@ -23,9 +26,17 @@ function clearDisplay() {
 
 function calculateResult() {
   try {
-    const result = eval(display.value.replace('%', '/100'));
+    let expression = display.value.replace('%', '/100');
+    const result = eval(expression);
+
     if (result !== undefined) {
-      display.value = result;
+      if (lastOperator === null && lastResult !== null) {
+        display.value = parseFloat(result) + parseFloat(lastResult);
+        lastResult = display.value;
+      } else {
+        display.value = result;
+        lastResult = result;
+      }
       display.style.color = "green";
     } else {
       display.value = "Math error";
@@ -44,4 +55,10 @@ function clearSingleDisplay() {
   if (currentValue.length > 0) {
     display.value = currentValue.slice(0, -1);
   }
+}
+
+function performOperation(operator) {
+  lastOperator = operator;
+  lastResult = display.value;
+  appendToDisplay(operator);
 }
