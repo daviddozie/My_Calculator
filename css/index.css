@@ -7,6 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: #030303;
 }
 
 #calculator {
@@ -16,11 +17,11 @@ body {
 
 .calculator-wrapper {
     min-height: 90vh;
-    width: 60%;
+    width: 30%;
     border-radius: 20px;
     border: none;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0,0.2);
-    background-color: black;
+    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.01);
+    background-color: #010101;
 }
 
 .calculator-wrapper input {
@@ -30,7 +31,12 @@ body {
     border: none;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
-    background-color: #fff;
+    color: #ffffff;
+    background-color: #161616;
+}
+
+.bg-danger {
+    background-color: red !important;
 }
 
 .calculator-wrapper input:focus {
@@ -39,7 +45,7 @@ body {
 
 .anim {
     position: absolute;
-    background-color: green;
+    background-color: #c85802;
     border-radius: 0 100px 0 0;
     left: 0;
     bottom: 0;
@@ -69,37 +75,38 @@ body {
 }
 
 .btn-wrapper button {
-    width: 150px;
+    width: 50px;
     height: 50px;
-    border-radius: 5px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.2);
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-wrapper button {
-    background-color: bisque;
+    background-color: #161616;
     transition: ease-in-out 0.5s;
-    opacity: 80%;
+    color: #ffffff;
 }
 
-.btn-wrapper button:not(:focus,:hover) {
-    opacity: 40%;
+.btn-wrapper button:active {
+    transform: scale(0.90);
 }
 
-.fa-circle-xmark {
-    color: red;
-}
-
-.fa-equals {
-    color: green;
+.bg-success {
+    background-color: green !important;
 }
 
 .bg-import:not(:focus,:hover) {
-    opacity: 40%;
+    color: #ffffff !important;
 }
 
 .bg-import {
-    background-color: goldenrod !important;
+    background-color: #c85802 !important;
     transition: ease-in-out 0.5s;
+    color: #ffffff !important;
 }
 
 @media only screen and (max-width: 830px) {

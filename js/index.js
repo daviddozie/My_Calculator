@@ -1,17 +1,18 @@
-// Get the display element
 const display = document.getElementById("display");
-//get anime by id
 const animeClear = document.getElementById("anime-clear");
+let storedValueForPercentage = null;
 
 
-// Function to append characters to the display
 function appendToDisplay(char) {
-  display.value += char;
+  if (char === '/100') {
+    display.value += '%';
+  } else {
+    display.value += char;
+  }
   display.style.fontSize = "40px";
-  display.style.color = "black";
+  display.style.color = "white";
 }
 
-// Function to clear the display
 function clearDisplay() {
   display.value = "";
 
@@ -20,49 +21,27 @@ function clearDisplay() {
   animeClear.classList.add("playAnimation");
 }
 
-// Function to calculate the result
 function calculateResult() {
   try {
-    const result = eval(display.value); // Use eval to calculate the expression
+    const result = eval(display.value.replace('%', '/100'));
     if (result !== undefined) {
       display.value = result;
       display.style.color = "green";
     } else {
       display.value = "Math error";
       display.style.color = "red";
-      display.style.fontSize = "12px";
-    }
-  } catch (error) {
-        display.value = "Math error";
-        display.style.color = "red";
-        display.style.fontSize = "12px";
-    }
-}
-
-// Function to clear one character from the display
-function clearSingleDisplay() {
-  const currentValue = display.value;
-  if (currentValue.length > 0) {
-    // Remove the last character from the input value
-    display.value = currentValue.slice(0, -1);
-  }
-}
-
-const percentButton = document.querySelector("button[onclick='appendToDisplay(\\'%\\')']");
-
-// Attach an event listener to the percentage button
-percentButton.addEventListener("click", calculatePercentage);
-
-function calculatePercentage() {
-  try {
-    const currentValue = parseFloat(display.value);
-    if (!isNaN(currentValue)) {
-      const percentageValue = currentValue / 100;
-      display.value = percentageValue;
+      display.style.fontSize = "30px";
     }
   } catch (error) {
     display.value = "Math error";
     display.style.color = "red";
-    display.style.fontSize = "12px";
+    display.style.fontSize = "30px";
+  }
+}
+
+function clearSingleDisplay() {
+  const currentValue = display.value;
+  if (currentValue.length > 0) {
+    display.value = currentValue.slice(0, -1);
   }
 }
